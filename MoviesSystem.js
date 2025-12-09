@@ -9,21 +9,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "templates"));
 
-
+/*
 require("dotenv").config({
    path: path.resolve(__dirname, "credentialsDontPost/.env"),
 });
-
+*/
 
 const databaseName = "CMSC335DB";
 const collectionName = "moviesCollection";
 const uri = process.env.MONGO_CONNECTION_STRING;
 const client = new MongoClient(uri, { serverApi: ServerApiVersion.v1 });
-/*
+
 app.get("/", async (req, res) => {
    res.send(`My Deployment`);
 });
-*/
+
 app.get("/insertMovies", async (req, res) => {
     try {
       await client.connect();
